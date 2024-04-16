@@ -1,0 +1,1 @@
+python validate.py --weights /root/Vi2ENav/src/perception/ssc-network/outputs/DSC-AFC_SemanticKITTI_1206_190338/chkpt/best-metric/weights_epoch_047.pth --dset_root /root/datasets/semantic_kitti/dataset/sequences

@@ -1,0 +1,1 @@
+python test.py --weights  /root/Vi2ENav/src/perception/ssc-network/outputs/DSC-AFC_SemanticKITTI_1209_170116/chkpt/best-metric/weights_epoch_076.pth --dset_root /root/datasets/semantic_kitti/dataset/sequences --out_path /root/Vi2ENav/src/perception/ssc-network/predictions
