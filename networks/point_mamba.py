@@ -263,7 +263,7 @@ class PointMamba(nn.Module):
         
         self.trans_dim = trans_dim
         self.depth = 12
-        self.group_size = 32
+        self.group_size = 8
         self.num_group = num_group
         self.encoder_dims = encoder_dims
         self.scales = scales  # 尺度列表

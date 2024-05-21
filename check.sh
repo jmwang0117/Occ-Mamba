@@ -1,0 +1,1 @@
+python /root/Occ-Mamba/semantic-kitti-api/validate_submission.py --task completion /root/Occ-Mamba/predictions/submission.zip /root/datasets/semantic_kitti/dataset

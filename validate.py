@@ -99,9 +99,9 @@ def validate(model, dset, _cfg, logger, metrics):
 def main():
 
     # https://github.com/pytorch/pytorch/issues/27588
-    torch.backends.cudnn.enabled = False
+    torch.backends.cudnn.enabled = True
 
-    seed_all(0)
+    seed_all(43)
 
     args = parse_args()
 
@@ -132,7 +132,7 @@ def main():
 
     logger.info('=> Loading network weights...')
     model = checkpoint.load_model(model, weights_f, logger)
-
+    
     nbr_iterations = len(dataset['val'])
     metrics = Metrics(_cfg._dict['DATASET']['NCLASS'], nbr_iterations, model.get_scales())
     metrics.reset_evaluator()

@@ -5,7 +5,7 @@ import torch.nn as nn
 import sys
 import numpy as np
 import time
-
+from torchprofile import profile_macs
 # Append root directory to system path for imports
 repo_path, _ = os.path.split(os.path.realpath(__file__))
 repo_path, _ = os.path.split(repo_path)
@@ -19,7 +19,7 @@ from utils.logger import get_logger
 from utils.io_tools import dict_to, _create_directory
 import utils.checkpoint as checkpoint
 
-
+os.environ["CUDA_VISIBLE_DEVICES"] = "3"
 def parse_args():
     parser = argparse.ArgumentParser(description='DSC validating')
     parser.add_argument(
@@ -92,9 +92,9 @@ def test(model, dset, _cfg, logger, out_path_root):
 def main():
 
     # https://github.com/pytorch/pytorch/issues/27588
-    torch.backends.cudnn.enabled = False
+    torch.backends.cudnn.enabled = True
 
-    seed_all(0)
+    seed_all(43)
 
     args = parse_args()
 
@@ -125,7 +125,8 @@ def main():
 
     logger.info('=> Loading network weights...')
     model = checkpoint.load_model(model, weights_f, logger)
-
+    logger.info(f'=> Model Parameters: {sum(p.numel() for p in model.parameters())/1000000.0} M')
+    
     time_list = test(model, dataset, _cfg, logger, out_path_root)
 
     logger.info('=> ============ Network Test Done ============')

@@ -147,10 +147,7 @@ def train(model, optimizer, scheduler, dataset, _cfg, start_epoch, logger, tbwri
         for scale in metrics.evaluator.keys():
             tbwriter.add_scalar('train_performance/{}/mIoU'.format(scale), metrics.get_semantics_mIoU(scale).item(), epoch - 1)
             tbwriter.add_scalar('train_performance/{}/IoU'.format(scale), metrics.get_occupancy_IoU(scale).item(), epoch - 1)
-            # tbwriter.add_scalar('train_performance/{}/Seg_mIoU'.format(scale), seg_miou, epoch - 1)
-            # tbwriter.add_scalar('train_performance/{}/Precision'.format(scale), metrics.get_occupancy_Precision(scale).item(), epoch-1)
-            # tbwriter.add_scalar('train_performance/{}/Recall'.format(scale), metrics.get_occupancy_Recall(scale).item(), epoch-1)
-            # tbwriter.add_scalar('train_performance/{}/F1'.format(scale), metrics.get_occupancy_F1(scale).item(), epoch-1)
+           
 
         logger.info('=> [Epoch {} - Total Train Loss = {}]'.format(epoch, epoch_loss))
         for scale in metrics.evaluator.keys():
@@ -276,9 +273,9 @@ def validate(model, dset, _cfg, epoch, logger, tbwriter, metrics):
 def main():
 
     # https://github.com/pytorch/pytorch/issues/27588
-    torch.backends.cudnn.enabled = False
+    torch.backends.cudnn.enabled = True
 
-    seed_all(10)
+    seed_all(43)
 
     args = parse_args()
 
