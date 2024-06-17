@@ -3,7 +3,6 @@ import torch_scatter
 import torch.nn as nn
 import torch.nn.functional as F
 
-
 def quantitize(data, lim_min, lim_max, size, with_res=False):
     idx = (data - lim_min) / (lim_max - lim_min) * size.float()
     idxlong = idx.type(torch.cuda.LongTensor)
@@ -132,6 +131,7 @@ class PcPreprocessor(nn.Module):
             xyz_res = torch.stack([xres, yres, zres], dim=-1)
             info[scale] = {'bxyz_indx': bxyz_indx, 'xyz_res': xyz_res}
 
+       
         voxel_feature, coord_ind, full_coord = self.extract_geometry_features(pc, info)
 
         return voxel_feature, coord_ind, full_coord, info

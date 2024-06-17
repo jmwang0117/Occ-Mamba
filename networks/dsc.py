@@ -7,7 +7,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 from .preprocess import PcPreprocessor
-from .bev_net import BEVUNet, BEVUNetv1
+from .bev_net import BEVUNetv1
 from .completion import CompletionBranch
 from .semantic_segmentation import SemanticBranch
 from utils.lovasz_losses import lovasz_softmax

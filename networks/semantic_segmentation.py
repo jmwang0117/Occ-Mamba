@@ -15,40 +15,30 @@ import torch.nn.functional as F
 import numpy as np
 from utils.lovasz_losses import lovasz_softmax
 
-class MambaLayer3D(nn.Module):
+class MambaLayer(nn.Module):
     def __init__(self, input_dim, output_dim, d_state=16, d_conv=4, expand=2):
         super().__init__()
         self.input_dim = input_dim
         self.output_dim = output_dim
-        self.norm = nn.InstanceNorm3d(input_dim)  # 使用3D归一化
+        self.norm = nn.InstanceNorm3d(input_dim)  
         self.mamba = Mamba(
             d_model=input_dim,  # Model dimension
             d_state=d_state,    # SSM state expansion factor
             d_conv=d_conv,      # Local convolution width
             expand=expand,      # Block expansion factor
         )
-        self.proj = nn.Conv3d(input_dim, output_dim, kernel_size=1)  # 使用3D卷积进行投影
+        self.proj = nn.Conv3d(input_dim, output_dim, kernel_size=1)  
 
     def forward(self, x):
         if x.dtype == torch.float16:
             x = x.type(torch.float32)
         B, C, D, H, W = x.shape
         assert C == self.input_dim
-        
-        # 应用3D归一化
         x_norm = self.norm(x)
-        
-        # 重塑为 (batch_size, seq_len, features) 以适应 Mamba 模块
         n_tokens = D * H * W
         x_flat = x_norm.reshape(B, C, n_tokens).transpose(-1, -2)
-        
-        # 通过 Mamba 模块处理
         x_mamba = self.mamba(x_flat)
-      
-        # 重塑回原始的5D形状
         x_mamba = x_mamba.transpose(-1, -2).reshape(B, C, D, H, W)
-        
-        # 应用3D卷积投影
         x_mamba = self.proj(x_mamba)
         return x_mamba
     
@@ -215,10 +205,10 @@ class SemanticBranch(nn.Module):
         self.proj3_block = SGFE(input_channels=128, output_channels=256,\
                                 reduce_channels=128, name="proj3")
 
-         # 创建MambaLayer3D实例，输入和输出维度与BEV特征匹配
-        self.mamba_layer_3d_proj1 = MambaLayer3D(input_dim=64, output_dim=64, d_state=16, d_conv=4, expand=2)
-        self.mamba_layer_3d_proj2 = MambaLayer3D(input_dim=128, output_dim=128, d_state=16, d_conv=4, expand=2)
-        self.mamba_layer_3d_proj3 = MambaLayer3D(input_dim=256, output_dim=256, d_state=16, d_conv=4, expand=2)
+
+        self.mamba_layer_3d_proj1 = MambaLayer(input_dim=64, output_dim=64, d_state=16, d_conv=4, expand=2)
+        self.mamba_layer_3d_proj2 = MambaLayer(input_dim=128, output_dim=128, d_state=16, d_conv=4, expand=2)
+        self.mamba_layer_3d_proj3 = MambaLayer(input_dim=256, output_dim=256, d_state=16, d_conv=4, expand=2)
         
         self.phase = phase
         if phase == 'trainval':

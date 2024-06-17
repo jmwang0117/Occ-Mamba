@@ -94,7 +94,7 @@ def main():
     # https://github.com/pytorch/pytorch/issues/27588
     torch.backends.cudnn.enabled = True
 
-    seed_all(43)
+    seed_all(0)
 
     args = parse_args()
 

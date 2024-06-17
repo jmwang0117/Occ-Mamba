@@ -8,40 +8,30 @@ except ImportError:
     RMSNorm, layer_norm_fn, rms_norm_fn = None, None, None
 from utils.lovasz_losses import lovasz_softmax
 
-class MambaLayer3D(nn.Module):
+class MambaLayer(nn.Module):
     def __init__(self, input_dim, output_dim, d_state=16, d_conv=4, expand=2):
         super().__init__()
         self.input_dim = input_dim
         self.output_dim = output_dim
-        self.norm = nn.InstanceNorm3d(input_dim)  # 使用3D归一化
+        self.norm = nn.InstanceNorm3d(input_dim)  
         self.mamba = Mamba(
             d_model=input_dim,  # Model dimension
             d_state=d_state,    # SSM state expansion factor
             d_conv=d_conv,      # Local convolution width
             expand=expand,      # Block expansion factor
         )
-        self.proj = nn.Conv3d(input_dim, output_dim, kernel_size=1)  # 使用3D卷积进行投影
-
+        self.proj = nn.Conv3d(input_dim, output_dim, kernel_size=1)  
+        
     def forward(self, x):
         if x.dtype == torch.float16:
             x = x.type(torch.float32)
         B, C, D, H, W = x.shape
         assert C == self.input_dim
-        
-        # 应用3D归一化
         x_norm = self.norm(x)
-        
-        # 重塑为 (batch_size, seq_len, features) 以适应 Mamba 模块
         n_tokens = D * H * W
         x_flat = x_norm.reshape(B, C, n_tokens).transpose(-1, -2)
-        
-        # 通过 Mamba 模块处理
         x_mamba = self.mamba(x_flat)
-      
-        # 重塑回原始的5D形状
         x_mamba = x_mamba.transpose(-1, -2).reshape(B, C, D, H, W)
-        
-        # 应用3D卷积投影
         x_mamba = self.proj(x_mamba)
         return x_mamba
 
@@ -77,10 +67,11 @@ class CompletionBranch(nn.Module):
         self.block_2 = make_layers(16, 32, kernel_size=3, padding=1, stride=1, dilation=1, downsample=True, blocks=1) # 1/4, 32
         self.block_3 = make_layers(32, 64, kernel_size=3, padding=2, stride=1, dilation=2, downsample=True, blocks=1)  # 1/8, 64
         
-        self.mamba_block_1 = MambaLayer3D(input_dim=16, output_dim=16)
-        self.mamba_block_2 = MambaLayer3D(input_dim=32, output_dim=32)
-        self.mamba_block_3 = MambaLayer3D(input_dim=64, output_dim=64)
+        self.mamba_block_1 = MambaLayer(input_dim=16, output_dim=16)
+        self.mamba_block_2 = MambaLayer(input_dim=32, output_dim=32)
+        self.mamba_block_3 = MambaLayer(input_dim=64, output_dim=64)
         
+  
         self.reduction_1 = nn.Sequential(
             nn.Conv2d(256, 128, kernel_size=1),
             nn.ReLU(),
@@ -112,14 +103,18 @@ class CompletionBranch(nn.Module):
         
         res1 = self.block_1(out)  # B, 16, 16, 128, 128       
         res1 = self.mamba_block_1(res1)  # Apply Mamba block after block_1
+        
         res2 = self.block_2(res1)  # B, 32, 8, 64, 64
         res2 = self.mamba_block_2(res2)  # Apply Mamba block after block_2
+        
         res3 = self.block_3(res2)  # B, 64, 4, 32, 32
         res3 = self.mamba_block_3(res3)  # Apply Mamba block after block_3
 
         bev_1 = self.reduction_1(res1.flatten(1, 2)) # B, 64, 128, 128
         bev_2 = self.reduction_2(res2.flatten(1, 2)) # B, 128, 64, 64
         bev_3 = res3.flatten(1, 2) # B, 256, 32, 32
+        
+      
 
         if self.phase == 'trainval':
             logits_2 = self.out2(res1)

@@ -7,7 +7,7 @@ from tensorboardX import SummaryWriter
 import sys
 import numpy as np
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "1"
+os.environ["CUDA_VISIBLE_DEVICES"] = "3"
 # Append root directory to system path for imports
 repo_path, _ = os.path.split(os.path.realpath(__file__))
 repo_path, _ = os.path.split(repo_path)
@@ -253,10 +253,10 @@ def validate(model, dset, _cfg, epoch, logger, tbwriter, metrics):
 
         checkpoint_info = {}
 
-        if epoch_loss < _cfg._dict['OUTPUT']['BEST_LOSS']:
-            logger.info('=> Best loss on validation set encountered: ({} < {})'.format(epoch_loss, _cfg._dict['OUTPUT']['BEST_LOSS']))
-            _cfg._dict['OUTPUT']['BEST_LOSS'] = epoch_loss.item()
-            checkpoint_info['best-loss'] = 'BEST_LOSS'
+        # if epoch_loss < _cfg._dict['OUTPUT']['BEST_LOSS']:
+        #     logger.info('=> Best loss on validation set encountered: ({} < {})'.format(epoch_loss, _cfg._dict['OUTPUT']['BEST_LOSS']))
+        #     _cfg._dict['OUTPUT']['BEST_LOSS'] = epoch_loss.item()
+        #     checkpoint_info['best-loss'] = 'BEST_LOSS'
 
         mIoU_1_1 = metrics.get_semantics_mIoU('1_1')
         IoU_1_1 = metrics.get_occupancy_IoU('1_1')
@@ -268,6 +268,19 @@ def validate(model, dset, _cfg, epoch, logger, tbwriter, metrics):
 
         checkpoint_info['last'] = 'LAST'
 
+
+
+        # mIoU_1_1 = metrics.get_semantics_mIoU('1_1')
+        # IoU_1_1 = metrics.get_occupancy_IoU('1_1')
+        # if mIoU_1_1 > _cfg._dict['OUTPUT']['BEST_METRIC']:
+        #     logger.info('=> Best metric on validation set encountered: ({} > {})'.format(mIoU_1_1, _cfg._dict['OUTPUT']['BEST_METRIC']))
+        #     _cfg._dict['OUTPUT']['BEST_METRIC'] = mIoU_1_1.item()
+        #     checkpoint_info['best-metric'] = 'BEST_METRIC'
+        #     metrics.update_best_metric_record(mIoU_1_1, IoU_1_1, epoch_loss.item(), epoch)
+
+        # checkpoint_info['last'] = 'LAST'
+        
+        
         return checkpoint_info
 
 def main():
@@ -275,7 +288,7 @@ def main():
     # https://github.com/pytorch/pytorch/issues/27588
     torch.backends.cudnn.enabled = True
 
-    seed_all(43)
+    seed_all(7240)
 
     args = parse_args()
 

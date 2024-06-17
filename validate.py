@@ -3,12 +3,12 @@ import argparse
 import torch
 import torch.nn as nn
 import sys
-
+from torchprofile import profile_macs
 # Append root directory to system path for imports
 repo_path, _ = os.path.split(os.path.realpath(__file__))
 repo_path, _ = os.path.split(repo_path)
 sys.path.append(repo_path)
-
+os.environ["CUDA_VISIBLE_DEVICES"] = "3"
 from utils.seed import seed_all
 from utils.config import CFG
 from utils.dataset import get_dataset
@@ -53,6 +53,7 @@ def validate(model, dset, _cfg, logger, metrics):
 
     logger.info('=> Passing the network on the validation set...')
     time_list = []
+    flops_list = []
     model.eval()
 
     with torch.no_grad():
@@ -62,7 +63,10 @@ def validate(model, dset, _cfg, logger, metrics):
             start_time = time.time()
             scores, loss = model(data)
             time_list.append(time.time() - start_time)
-
+            # Calculate FLOPS
+            # flops = profile_macs(model, data)  # Assuming 'input' is the key for your model input
+            # flops_list.append(flops / 1e9)  # Convert to GigaFLOPS
+            
             # Updating batch losses to then get mean for epoch loss
             metrics.losses_track.update_validaiton_losses(loss)
 
@@ -92,7 +96,10 @@ def validate(model, dset, _cfg, logger, metrics):
             class_name = dset.dataset.get_xentropy_class_string(i)
             class_score = metrics.evaluator['1_1'].getIoU()[1][i]
             logger.info('    => IoU {}: {:.6f}'.format(class_name, class_score))
-
+            
+        # After the loop, you can log the average FLOPS
+        # avg_flops = sum(flops_list) / len(flops_list)
+        # logger.info(f'Average FLOPS per forward pass: {avg_flops:.2f} GFLOPS')
         return time_list
 
 
@@ -101,7 +108,7 @@ def main():
     # https://github.com/pytorch/pytorch/issues/27588
     torch.backends.cudnn.enabled = True
 
-    seed_all(43)
+    seed_all(0)
 
     args = parse_args()
 
