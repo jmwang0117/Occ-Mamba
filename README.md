@@ -4,6 +4,7 @@
     <h1>🤖 OMEGA</h1>
     <h2>Efficient Occlusion-Aware Navigation for Air-Ground Robot in Dynamic Environments via State Space Model</h2>
 </div>
+
 ## 📢 News
 
 * **[05/07/2024]**: The pre-trained model can be downloaded at  [OneDrive](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/u3009632_connect_hku_hk/Ef07DNxypO1KhwuMNbthmP8BgIeDdXJyaeq4uwi6hFKgRw?e=y2LYv2)
