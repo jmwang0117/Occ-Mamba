@@ -98,7 +98,7 @@ You've begun this project successfully; **enjoy yourself!**
 
 Many thanks to these excellent open source projects:
 - [AGRNav](https://github.com/jmwang0117/AGRNav)
-- [AGRNav](https://github.com/jmwang0117/HE-Nav)
+- [HE-Nav](https://github.com/jmwang0117/HE-Nav)
 - [Prometheus](https://github.com/amov-lab/Prometheus)
 - [SSC-RS](https://github.com/Jieqianyu/SSC-RS)
 - [semantic-kitti-api](https://github.com/PRBonn/semantic-kitti-api)
