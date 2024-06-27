@@ -1,8 +1,7 @@
-
-
 <div align="center">
     <h1>🤖 OMEGA</h1>
-    <h2>Efficient Occlusion-Aware Navigation for Air-Ground Robot in Dynamic Environments via State Space Model</h2>
+    <h2>Efficient Occlusion-Aware Navigation for Air-Ground Robot in Dynamic Environments via State Space Model</h2> <br>
+     <a href='https://jmwang0117.github.io/OMEGA/'>Project_Page</a>
 </div>
 
 ## 📢 News
@@ -25,59 +24,19 @@
 
 
 ```
-@article{wangomega,
-  title={OMEGA: Efficient Occlusion-Aware Navigation for Air-Ground Robot in Dynamic Environments via State Space Model},
-  author={J, Wang},
-  journal={arXiv preprint arXiv:2309.13882},
-  year={2024}
-}
+@article{wang2024omega,
+title={OMEGA: Efficient Occlusion-Aware Navigation for Air-Ground Robot in Dynamic Environments via State Space Model},
+author={Wang, Junming and Huang, Dong and Sun, Zekai and Guan, Xiuxian and Shen, Tianxiang and Liu, Fangming and Cui, Heming},
+year={2024}
+      } 
 ```
 
 Please kindly star ⭐️ this project if it helps you. We take great efforts to develop and maintain it 😁.
 
 ## 🛠️ Installation
 
-## Installation
-The code was tested with `python=3.6.9`, as well as `pytorch=1.10.0+cu111` and `torchvision=0.11.2+cu111`. 
+## TODO
 
-Please follow the instructions [here](https://pytorch.org/get-started/locally/) to install both PyTorch and TorchVision dependencies. Installing both PyTorch and TorchVision with CUDA support is strongly recommended.
-
-1. Clone the repository locally:
-
-```
- git clone https://github.com/jmwang0117/HE-Nav.git
-```
-2. We recommend using **Docker** to run the project, which can reduce the burden of configuring the environment, you can find the Dockerfile in our project, and then execute the following command:
-```
- docker build . -t skywalker_robot -f Dockerfile
-```
-3. After the compilation is complete, use our **one-click startup script** in the same directory:
-```
- bash create_container.sh
-```
-
- **Pay attention to switch docker image**
-
-4. Next enter the container and use git clone our project
-```
- docker exec -it robot bash
-```
-5. Then catkin_make compiles this project
-```
- apt update && sudo apt-get install libarmadillo-dev ros-melodic-nlopt
-
-```
-## Run the following commands 
-```
-pip install pyyaml
-pip install rospkg
-pip install imageio
-catkin_make
-source devel/setup.bash
-sh src/run.sh
-```
-
-You've begun this project successfully; **enjoy yourself!**
 
 
 ## Dataset
@@ -88,17 +47,14 @@ You've begun this project successfully; **enjoy yourself!**
 
 ## 🤗 AGR-family Works
 
-* [OMEGA](https://jmwang0117.github.io/OMEGA/) (RA-L 2024): Prediction-boosted Planner for Aerial Reconstruction.
-* [HE-Nav](https://jmwang0117.github.io/HE-Nav/) (RA-L 2024): Highly Efficient Global Planner for Aerial Coverage.
-* [AGRNav](https://github.com/jmwang0117/AGRNav) (ICRA 2024): Heterogenous Multi-UAV Planner for Aerial Reconstruction.
+* [OMEGA](https://jmwang0117.github.io/OMEGA/) (Submitted to RA-L'24): The First Aerial-Ground Robot Navigation System in Dynamic Environments.
+* [AGRNav](https://github.com/jmwang0117/AGRNav) (ICRA'24): The First Aerial-Ground Robot Navigation System with Occlusion Awareness.
 
 
 
 ## Acknowledgement
-
 Many thanks to these excellent open source projects:
 - [AGRNav](https://github.com/jmwang0117/AGRNav)
-- [HE-Nav](https://github.com/jmwang0117/HE-Nav)
 - [Prometheus](https://github.com/amov-lab/Prometheus)
 - [SSC-RS](https://github.com/Jieqianyu/SSC-RS)
 - [semantic-kitti-api](https://github.com/PRBonn/semantic-kitti-api)
