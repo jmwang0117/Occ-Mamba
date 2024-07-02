@@ -5,7 +5,19 @@
 </div>
 
 ## 📢 News
-* **[01/07/2024]**: OccMamba's experimental log is available for download:
+* **[03/07/2024]**: OMEGA's simulation logs are available for download:
+
+<div align="center">
+
+| Simulation Results | Experiment Log |
+|:------------------------------------------------------------------:|:----------:|
+|OMEGA | [link](https://connecthkuhk-my.sharepoint.com/:t:/g/personal/u3009632_connect_hku_hk/EYQCfCo-UdJEt6p7H6eyhioBgJd2rIWKbb1IEqVo2hEjkg?e=zxFxMB) |
+|AGRNav|  [link](https://connecthkuhk-my.sharepoint.com/:t:/g/personal/u3009632_connect_hku_hk/EYu6dtz6G6NHjjSvAUpuTjUBZC-Rmp2CjosK3qeVtijhPQ?e=P1YrvX) |
+|TABV| [link](https://connecthkuhk-my.sharepoint.com/:t:/g/personal/u3009632_connect_hku_hk/EVLIa9V_gLlMs6vOfvzhE28Bp58W6u_KH5p353SoAdxjjA?e=k3GxRP) |
+
+</div>
+
+* **[01/07/2024]**: OccMamba's test and evaluation logs are available for download:
 
 <div align="center">
 
