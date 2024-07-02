@@ -18,7 +18,7 @@
 </div>
 
 * **[28/06/2024]**: The pre-trained model can be downloaded at  [OneDrive](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/u3009632_connect_hku_hk/Edm7rZiSH3hBu_vxRJasn1wB7vPTqRWYiDgd9LcZFKbJjQ?e=mlBIfl)
-* **[25/06/2024]**: We have released the code for OccMamba, a key component of OMEGA!.
+* **[25/06/2024]**: We have released the code for OccMamba, a key component of OMEGA!
 
 
 ## 📜 Introduction
