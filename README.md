@@ -8,6 +8,7 @@
 * **[01/07/2024]**: OccMamba's experimental log is available for download:
 
 <div align="center">
+
 | OccMamba Results | Experiment Log |
 |:------------------------------------------------------------------:|:----------:|
 |OccMamba on the SemanticKITTI hidden official test dataset | [link](https://connecthkuhk-my.sharepoint.com/:t:/g/personal/u3009632_connect_hku_hk/EReNqjk3AehAuvCllef7I6ABEbyl1yu2oPuQ2eYcv5Ad5A?e=RQMFSt) |
