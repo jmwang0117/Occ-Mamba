@@ -69,8 +69,8 @@ Please kindly star ⭐️ this project if it helps you. We take great efforts to
 
 ## 🤗 AGR-Family Works
 
-* [OMEGA](https://jmwang0117.github.io/OMEGA/) (Submitted to RA-L'24): The First Aerial-Ground Robot Navigation System in Dynamic Environments.
-* [AGRNav](https://github.com/jmwang0117/AGRNav) (ICRA'24): The First Aerial-Ground Robot Navigation System with Occlusion Awareness.
+* [OMEGA](https://jmwang0117.github.io/OMEGA/) (Submitted to RA-L'24): The First AGR-Tailored Dynamic Navigation System.
+* [AGRNav](https://github.com/jmwang0117/AGRNav) (ICRA'24): The First AGR-Tailored Occlusion-Aware Navigation System.
 
 
 
