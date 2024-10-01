@@ -1,8 +1,17 @@
 <div align="center">
     <h1>🤖 OMEGA</h1>
     <h2>Efficient Occlusion-Aware Navigation for Air-Ground Robot in Dynamic Environments via State Space Model</h2> <br>
-     <a href='https://jmwang0117.github.io/OMEGA/'>Project_Page</a>
+    <a href='https://arxiv.org/abs/2408.10618'><img src='https://img.shields.io/badge/arXiv-OMEGA-green' alt='arxiv'></a>
+     <a href='https://jmwang0117.github.io/OMEGA/'><img src='https://img.shields.io/badge/Project_Page-OMEGA-green' alt='Project Page'></a>
+    
 </div>
+
+## 🤗 AGR-Family Works
+
+* [OMEGA](https://jmwang0117.github.io/OMEGA/) (Submitted to RA-L'24): The First AGR-Tailored Dynamic Navigation System.
+* [AGRNav](https://github.com/jmwang0117/AGRNav) (ICRA'24): The First AGR-Tailored Occlusion-Aware Navigation System.
+
+
 
 ## 📢 News
 * **[03/07/2024]**: OMEGA's simulation logs are available for download:
@@ -64,14 +73,6 @@ Please kindly star ⭐️ this project if it helps you. We take great efforts to
 ## 💽 Dataset
 
 - [x] SemanticKITTI
-
-
-
-## 🤗 AGR-Family Works
-
-* [OMEGA](https://jmwang0117.github.io/OMEGA/) (Submitted to RA-L'24): The First AGR-Tailored Dynamic Navigation System.
-* [AGRNav](https://github.com/jmwang0117/AGRNav) (ICRA'24): The First AGR-Tailored Occlusion-Aware Navigation System.
-
 
 
 ## 🏆 Acknowledgement
