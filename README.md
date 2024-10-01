@@ -52,15 +52,17 @@
   <img src="misc/head.png" width = 60% height = 60%/>
 </p>
 
-
+<br>
 
 ```
 @article{wang2024omega,
-title={OMEGA: Efficient Occlusion-Aware Navigation for Air-Ground Robot in Dynamic Environments via State Space Model},
-author={Wang, Junming and Huang, Dong and Sun, Zekai and Guan, Xiuxian and Shen, Tianxiang and Liu, Fangming and Cui, Heming},
-year={2024}
-      } 
+  title={OMEGA: Efficient Occlusion-Aware Navigation for Air-Ground Robot in Dynamic Environments via State Space Model},
+  author={Wang, Junming and Huang, Dong and Guan, Xiuxian and Sun, Zekai and Shen, Tianxiang and Liu, Fangming and Cui, Heming},
+  journal={arXiv preprint arXiv:2408.10618},
+  year={2024}
+}
 ```
+<br>
 
 Please kindly star ⭐️ this project if it helps you. We take great efforts to develop and maintain it 😁.
 
