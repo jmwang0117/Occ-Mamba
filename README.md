@@ -6,9 +6,6 @@
     
 </div>
 
-## 🎉 Chinese Media Reports/Interpretations
-* [AMOV Lab Research Scholarship](https://mp.weixin.qq.com/s/AXbW3LDgsl9knQBIMwIpvA) -- 2024.11: 5000 RMB
-* [AMOV Lab Research Scholarship](https://mp.weixin.qq.com/s/PUwY04sMpVmz30kSn6XdzQ) -- 2024.10: 5000 RMB
 
 ## 🤗 AGR-Family Works
 
@@ -17,6 +14,9 @@
 * [AGRNav](https://github.com/jmwang0117/AGRNav) (ICRA 2024.01): The First AGR-Tailored Occlusion-Aware Navigation System.
 
 
+## 🎉 Chinese Media Reports/Interpretations
+* [AMOV Lab Research Scholarship](https://mp.weixin.qq.com/s/AXbW3LDgsl9knQBIMwIpvA) -- 2024.11: 5000 RMB
+* [AMOV Lab Research Scholarship](https://mp.weixin.qq.com/s/PUwY04sMpVmz30kSn6XdzQ) -- 2024.10: 5000 RMB
 
 ## 📢 News
 * **[03/07/2024]**: OMEGA's simulation logs are available for download:
@@ -70,6 +70,25 @@
 <br>
 
 Please kindly star ⭐️ this project if it helps you. We take great efforts to develop and maintain it 😁.
+
+## 🔧 Hardware List
+
+<div align="center">
+
+| Hardware | Link |
+|:------------------:|:----------:|
+| AMOV Lab P600 UAV | [link](https://www.amovlab.com/product/detail?pid=76) |
+| AMOV Lab Allapark1-Jetson Xavier NX | [link](https://www.amovlab.com/product/detail?pid=77) |
+| Wheeltec R550 ROS Car | [link](https://lubancat.wheeltec.net/zh-cn/main/neirong/01%E6%9C%BA%E5%99%A8%E4%BA%BA%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D/01%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D.html) |
+| Intel RealSense D435i | [link](https://www.intelrealsense.com/depth-camera-d435i/) |
+| Intel RealSense T265 | [link](https://www.intelrealsense.com/visual-inertial-tracking-case-study/) |
+| TFmini Plus | [link](https://en.benewake.com/TFminiPlus/index_proid_323.html) |
+
+</div>
+
+❗ Considering that visual positioning is prone to drift in the Z-axis direction, we added TFmini Plus for height measurement. Additionally, **GNSS-RTK positioning** is recommended for better localization accuracy.
+
+🤑 Our customized Aerial-Ground Robot cost about **RMB 70,000**.
 
 ## 🛠️ Installation
 
