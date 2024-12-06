@@ -138,14 +138,14 @@ git clone https://github.com/jmwang0117/Occ-Mamba.git
 
 ```
 $ cd <root dir of this repo>
-$ bash scripts/run_train.sh
+$ bash run_train.sh
 ```
 ### Validation
 
 
 ```
 $ cd <root dir of this repo>
-$ bash scripts/run_val.sh
+$ bash run_val.sh
 ```
 ### Test
 
@@ -153,7 +153,7 @@ Since SemantiKITTI contains a hidden test set, we provide test routine to save p
 
 ```
 $ cd <root dir of this repo>
-$ bash scripts/run_test.sh
+$ bash run_test.sh
 ```
 
 
