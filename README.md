@@ -92,13 +92,68 @@ Please kindly star ⭐️ this project if it helps you. We take great efforts to
 
 ## 🛠️ Installation
 
-## TODO
-
-
+```
+conda create -n occmamba python=3.10 -y
+conda install pytorch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0 pytorch-cuda=12.1 -c pytorch -c nvidia -y
+pip install spconv-cu120
+pip install tensorboardX
+pip install dropblock
+pip install pyg_lib torch_scatter torch_sparse torch_cluster torch_spline_conv -f https://data.pyg.org/whl/torch-2.1.0+cu121.html
+pip install -U openmim
+mim install mmcv-full
+pip install mmcls==0.25.0
+```
 
 ## 💽 Dataset
 
 - [x] SemanticKITTI
+
+Please download the Semantic Scene Completion dataset (v1.1) from the [SemanticKITTI website](http://www.semantic-kitti.org/dataset.html) and extract it.
+
+Or you can use [voxelizer](https://github.com/jbehley/voxelizer) to generate ground truths of semantic scene completion.
+
+The dataset folder should be organized as follows.
+```angular2
+SemanticKITTI
+├── dataset
+│   ├── sequences
+│   │  ├── 00
+│   │  │  ├── labels
+│   │  │  ├── velodyne
+│   │  │  ├── voxels
+│   │  │  ├── [OTHER FILES OR FOLDERS]
+│   │  ├── 01
+│   │  ├── ... ...
+```
+
+## 🤗 Getting Start
+Clone the repository:
+```
+git clone https://github.com/jmwang0117/Occ-Mamba.git
+```
+
+
+### Train OccMamba Net
+
+```
+$ cd <root dir of this repo>
+$ bash scripts/run_train.sh
+```
+### Validation
+
+
+```
+$ cd <root dir of this repo>
+$ bash scripts/run_val.sh
+```
+### Test
+
+Since SemantiKITTI contains a hidden test set, we provide test routine to save predicted output in same format of SemantiKITTI, which can be compressed and uploaded to the [SemanticKITTI Semantic Scene Completion Benchmark](http://www.semantic-kitti.org/tasks.html#ssc). You can provide which checkpoints you want to use for testing. We used the ones that performed best on the validation set during training. For testing, you can use the following command.
+
+```
+$ cd <root dir of this repo>
+$ bash scripts/run_test.sh
+```
 
 
 ## 🏆 Acknowledgement
