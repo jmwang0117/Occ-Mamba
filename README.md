@@ -103,6 +103,7 @@ pip install -U openmim
 mim install mmcv-full
 pip install mmcls==0.25.0
 ```
+Please refer to [Vision-Mamba](https://github.com/hustvl/Vim) for more installation information.
 
 ## 💽 Dataset
 
@@ -158,6 +159,7 @@ $ bash scripts/run_test.sh
 
 ## 🏆 Acknowledgement
 Many thanks to these excellent open source projects:
+- [Vision-Mamba](https://github.com/hustvl/Vim)
 - [AGRNav](https://github.com/jmwang0117/AGRNav)
 - [Prometheus](https://github.com/amov-lab/Prometheus)
 - [SSC-RS](https://github.com/Jieqianyu/SSC-RS)
