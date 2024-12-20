@@ -61,10 +61,11 @@
 
 ```
 @article{wang2024omega,
-  title={OMEGA: Efficient Occlusion-Aware Navigation for Air-Ground Robot in Dynamic Environments via State Space Model},
-  author={Wang, Junming and Huang, Dong and Guan, Xiuxian and Sun, Zekai and Shen, Tianxiang and Liu, Fangming and Cui, Heming},
-  journal={arXiv preprint arXiv:2408.10618},
-  year={2024}
+  title={Omega: Efficient Occlusion-Aware Navigation for Air-Ground Robots in Dynamic Environments Via State Space Model},
+  author={Wang, Junming and Guan, Xiuxian and Sun, Zekai and Shen, Tianxiang and Huang, Dong and Liu, Fangming and Cui, Heming},
+  journal={IEEE Robotics and Automation Letters},
+  year={2024},
+  publisher={IEEE}
 }
 ```
 <br>
@@ -103,7 +104,8 @@ pip install -U openmim
 mim install mmcv-full
 pip install mmcls==0.25.0
 ```
-Please refer to [Vision-Mamba](https://github.com/hustvl/Vim) for more installation information.
+> [!NOTE]
+> Please refer to [Vision-Mamba](https://github.com/hustvl/Vim) for more installation information.
 
 ## 💽 Dataset
 
