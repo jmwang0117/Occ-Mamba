@@ -60,11 +60,14 @@
 <br>
 
 ```
-@article{wang2024omega,
-  title={Omega: Efficient Occlusion-Aware Navigation for Air-Ground Robots in Dynamic Environments Via State Space Model},
+@article{wang2025omega,
   author={Wang, Junming and Guan, Xiuxian and Sun, Zekai and Shen, Tianxiang and Huang, Dong and Liu, Fangming and Cui, Heming},
-  journal={IEEE Robotics and Automation Letters},
-  year={2024},
+  journal={IEEE Robotics and Automation Letters}, 
+  title={OMEGA: Efficient Occlusion-Aware Navigation for Air-Ground Robots in Dynamic Environments via State Space Model}, 
+  year={2025},
+  volume={10},
+  number={2},
+  pages={1066-1073},
   publisher={IEEE}
 }
 ```
